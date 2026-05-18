@@ -103,3 +103,44 @@ export interface DowntimeEventUpdate {
   severity?: DowntimeSeverity;
   ended_at?: string;
 }
+
+export interface Shift {
+  id: string;
+  name: string;
+  start_time: string;
+  end_time: string;
+  factory_id: string;
+  is_active: boolean;
+}
+
+export interface ShiftCreate {
+  name: string;
+  start_time: string;
+  end_time: string;
+  factory_id: string;
+}
+
+export interface ShiftHandover {
+  id: string;
+  outgoing_shift_id: string;
+  incoming_shift_id: string;
+  supervisor_id: string;
+  date: string;
+  operational_concerns?: string;
+  maintenance_notes?: string;
+  production_risks?: string;
+  escalation_tracking?: string;
+  tenant_id: string;
+}
+
+export interface ShiftHandoverCreate {
+  outgoing_shift_id: string;
+  incoming_shift_id: string;
+  supervisor_id: string;
+  date: string;
+  operational_concerns?: string;
+  maintenance_notes?: string;
+  production_risks?: string;
+  escalation_tracking?: string;
+  carryover_event_ids: string[];
+}

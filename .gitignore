@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.class
+.env
+.venv
+env/
+venv/
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+.npm/
+
+# IDEs
+.vscode/
+.idea/
+
+# Docker
+.docker/
+
+# Build artifacts
+frontend/dist/
+backend/dist/
