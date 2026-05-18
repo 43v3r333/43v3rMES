@@ -1,3 +1,6 @@
+export type DowntimeStatus = 'OPEN' | 'IN_PROGRESS' | 'RESOLVED' | 'CLOSED';
+export type DowntimeSeverity = 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
+
 export interface Permission {
   id: string;
   name: string;
@@ -57,4 +60,46 @@ export interface MachineCreate {
   code: string;
   description?: string;
   line_id: string;
+}
+
+export interface DowntimeEvent {
+  id: string;
+  event_number: string;
+  title: string;
+  description?: string;
+  factory_id: string;
+  area_id: string;
+  production_line_id: string;
+  status: DowntimeStatus;
+  severity: DowntimeSeverity;
+  category_id?: string;
+  started_at: string;
+  ended_at?: string;
+  duration_minutes?: number;
+  root_cause?: string;
+  resolution_notes?: string;
+  reported_by?: string;
+  assigned_to?: string;
+  tenant_id: string;
+  created_at: string;
+}
+
+export interface DowntimeEventCreate {
+  title: string;
+  description?: string;
+  factory_id: string;
+  area_id: string;
+  production_line_id: string;
+  started_at: string;
+  machine_ids: string[];
+}
+
+export interface DowntimeEventUpdate {
+  title?: string;
+  description?: string;
+  root_cause?: string;
+  resolution_notes?: string;
+  status?: DowntimeStatus;
+  severity?: DowntimeSeverity;
+  ended_at?: string;
 }
