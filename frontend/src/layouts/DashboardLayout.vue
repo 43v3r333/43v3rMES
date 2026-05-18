@@ -25,7 +25,8 @@ import {
   Sun,
   Moon,
   Wrench,
-  Calendar
+  Calendar,
+  FileBarChart
 } from 'lucide-vue-next'
 
 const authStore = useAuthStore()
@@ -44,6 +45,7 @@ const navigation = [
   { name: 'Work Orders', href: '/maintenance', icon: Wrench },
   { name: 'PM Plans', href: '/maintenance/schedules', icon: Calendar },
   { name: 'Analytics', href: '/analytics', icon: LayoutDashboard },
+  { name: 'Reporting', href: '/reports', icon: FileBarChart },
   { name: 'Handovers', href: '/handovers', icon: Users },
   { name: 'Escalations', href: '/escalations', icon: ShieldAlert },
   { name: 'Settings', href: '/settings', icon: Settings },

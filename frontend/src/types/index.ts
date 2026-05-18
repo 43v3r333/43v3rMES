@@ -270,3 +270,32 @@ export interface PMSchedule {
   next_due_at?: string;
   is_active: boolean;
 }
+
+export type ReportStatus = 'PENDING' | 'PROCESSING' | 'COMPLETED' | 'FAILED';
+export type ExportFormat = 'CSV' | 'XLSX' | 'PDF';
+
+export interface ReportTemplate {
+  id: string;
+  name: string;
+  report_type: string;
+  filters_json?: Record<string, any>;
+  tenant_id: string;
+  created_at: string;
+}
+
+export interface ReportRequest {
+  id: string;
+  report_type: string;
+  format: ExportFormat;
+  status: ReportStatus;
+  parameters?: Record<string, any>;
+  started_at?: string;
+  completed_at?: string;
+  file_path?: string;
+}
+
+export interface ReportRequestCreate {
+  report_type: string;
+  format: ExportFormat;
+  parameters?: Record<string, any>;
+}

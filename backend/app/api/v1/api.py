@@ -4,9 +4,13 @@ from backend.app.modules.analytics.routers import analytics
 from backend.app.modules.notifications.routers import notifications
 api_router.include_router(operations.router, prefix="/operations", tags=["operations"])
 api_router.include_router(maintenance.router, tags=["maintenance"])
+api_router.include_router(reporting.router, prefix="/reports", tags=["reporting"])
 from backend.app.modules.operations.routers import operations
 api_router.include_router(maintenance.router, tags=["maintenance"])
+api_router.include_router(reporting.router, prefix="/reports", tags=["reporting"])
 from backend.app.modules.maintenance.routers import maintenance
+api_router.include_router(reporting.router, prefix="/reports", tags=["reporting"])
+from backend.app.modules.reporting.routers import reporting
 
 api_router = APIRouter()
 api_router.include_router(auth.router, prefix="/auth", tags=["auth"])
@@ -18,3 +22,4 @@ api_router.include_router(analytics.router, prefix="/analytics", tags=["analytic
 api_router.include_router(notifications.router, prefix="/notifications", tags=["notifications"])
 api_router.include_router(operations.router, prefix="/operations", tags=["operations"])
 api_router.include_router(maintenance.router, tags=["maintenance"])
+api_router.include_router(reporting.router, prefix="/reports", tags=["reporting"])
