@@ -192,3 +192,30 @@ export interface EscalationRule {
   new_severity?: string;
   is_active: boolean;
 }
+
+export interface MachineStatus {
+  machine_id: string;
+  name: string;
+  code: string;
+  status: 'RUNNING' | 'IDLE' | 'DOWN';
+  active_event_id?: string;
+}
+
+export interface ActiveIncident {
+  id: string;
+  event_number: string;
+  title: string;
+  severity: string;
+  started_at: string;
+  duration_minutes: number;
+  machines: string[];
+}
+
+export interface OperationsOverview {
+  active_incident_count: number;
+  critical_alert_count: number;
+  mttr_last_24h: number;
+  availability_score: number;
+  current_shift_name: string;
+  supervisor_on_duty: string;
+}

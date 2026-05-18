@@ -2,6 +2,8 @@ from fastapi import APIRouter
 from backend.app.api.v1.endpoints import auth, factories, machines, downtime, workflow
 from backend.app.modules.analytics.routers import analytics
 from backend.app.modules.notifications.routers import notifications
+api_router.include_router(operations.router, prefix="/operations", tags=["operations"])
+from backend.app.modules.operations.routers import operations
 
 api_router = APIRouter()
 api_router.include_router(auth.router, prefix="/auth", tags=["auth"])
@@ -11,3 +13,4 @@ api_router.include_router(downtime.router, prefix="/downtime-events", tags=["dow
 api_router.include_router(workflow.router, tags=["workflow"])
 api_router.include_router(analytics.router, prefix="/analytics", tags=["analytics"])
 api_router.include_router(notifications.router, prefix="/notifications", tags=["notifications"])
+api_router.include_router(operations.router, prefix="/operations", tags=["operations"])
