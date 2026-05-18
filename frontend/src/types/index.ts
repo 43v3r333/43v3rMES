@@ -144,3 +144,27 @@ export interface ShiftHandoverCreate {
   escalation_tracking?: string;
   carryover_event_ids: string[];
 }
+
+export interface KPIResponse {
+  mttr: number;
+  mtbf: number;
+  availability: number;
+  downtime_percentage: number;
+  open_issue_count: number;
+  escalation_count: number;
+}
+
+export interface ParetoItem {
+  label: string;
+  value: number;
+  percentage: number;
+  cumulative_percentage: number;
+}
+
+export interface AgingIssue {
+  event_number: string;
+  title: string;
+  age_hours: number;
+  status: string;
+  severity: string;
+}
