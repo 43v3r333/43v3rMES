@@ -5,6 +5,8 @@ const router = createRouter({
     { path: '/:pathMatch(.*)*', name: 'not-found', component: () => import('@/pages/NotFoundPage.vue') },
     { path: '/login', name: 'login', component: () => import('@/pages/LoginView.vue') },
     { path: '/', component: () => import('@/layouts/DashboardLayout.vue'), children: [{ path: '', name: 'dashboard', component: () => import('@/pages/OperationsCommandCenterPage.vue') }] }
+        { path: 'maintenance/schedules', name: 'pm-schedules', component: () => import('@/pages/PMSchedulesPage.vue') },
+        { path: 'maintenance', name: 'maintenance', component: () => import('@/pages/WorkOrderPage.vue') },
         { path: 'escalations', name: 'escalations', component: () => import('@/pages/EscalationsPage.vue') },
         { path: 'analytics', name: 'analytics', component: () => import('@/pages/AnalyticsPage.vue') },
         { path: 'handovers', name: 'handovers', component: () => import('@/pages/ShiftHandoverPage.vue') },

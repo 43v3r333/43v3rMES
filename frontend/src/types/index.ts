@@ -219,3 +219,54 @@ export interface OperationsOverview {
   current_shift_name: string;
   supervisor_on_duty: string;
 }
+
+export type WorkOrderStatus = 'OPEN' | 'ASSIGNED' | 'IN_PROGRESS' | 'WAITING_PARTS' | 'COMPLETED' | 'VERIFIED' | 'CLOSED';
+export type WorkOrderPriority = 'EMERGENCY' | 'HIGH' | 'MEDIUM' | 'LOW';
+export type WorkOrderType = 'CORRECTIVE' | 'PREVENTIVE' | 'EMERGENCY' | 'INSPECTION';
+
+export interface WorkOrder {
+  id: string;
+  work_order_number: string;
+  title: string;
+  description?: string;
+  machine_id: string;
+  status: WorkOrderStatus;
+  priority: WorkOrderPriority;
+  type: WorkOrderType;
+  assigned_to?: string;
+  due_date?: string;
+  completed_at?: string;
+  labor_hours: number;
+  tenant_id: string;
+  created_at: string;
+}
+
+export interface WorkOrderCreate {
+  title: string;
+  description?: string;
+  machine_id: string;
+  priority: WorkOrderPriority;
+  type: WorkOrderType;
+  due_date?: string;
+}
+
+export interface WorkOrderUpdate {
+  title?: string;
+  status?: WorkOrderStatus;
+  priority?: WorkOrderPriority;
+  assigned_to?: string;
+  maintenance_notes?: string;
+  resolution_summary?: string;
+  labor_hours?: number;
+}
+
+export interface PMSchedule {
+  id: string;
+  name: string;
+  description?: string;
+  machine_id: string;
+  interval_days?: number;
+  runtime_threshold_hours?: number;
+  next_due_at?: string;
+  is_active: boolean;
+}

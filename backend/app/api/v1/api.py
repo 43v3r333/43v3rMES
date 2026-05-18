@@ -3,7 +3,10 @@ from backend.app.api.v1.endpoints import auth, factories, machines, downtime, wo
 from backend.app.modules.analytics.routers import analytics
 from backend.app.modules.notifications.routers import notifications
 api_router.include_router(operations.router, prefix="/operations", tags=["operations"])
+api_router.include_router(maintenance.router, tags=["maintenance"])
 from backend.app.modules.operations.routers import operations
+api_router.include_router(maintenance.router, tags=["maintenance"])
+from backend.app.modules.maintenance.routers import maintenance
 
 api_router = APIRouter()
 api_router.include_router(auth.router, prefix="/auth", tags=["auth"])
@@ -14,3 +17,4 @@ api_router.include_router(workflow.router, tags=["workflow"])
 api_router.include_router(analytics.router, prefix="/analytics", tags=["analytics"])
 api_router.include_router(notifications.router, prefix="/notifications", tags=["notifications"])
 api_router.include_router(operations.router, prefix="/operations", tags=["operations"])
+api_router.include_router(maintenance.router, tags=["maintenance"])

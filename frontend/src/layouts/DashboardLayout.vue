@@ -6,18 +6,26 @@ import { useDarkMode } from '@/composables/useDarkMode'
 import { useNotificationStore } from '@/stores/notification'
 import NotificationPanel from '@/components/ui/NotificationPanel.vue'
 import {
+  Radio,
+  Activity,
+  AlertCircle,
+  Clock,
+  Users,
+  Maximize2,
+  RefreshCcw,
   LayoutDashboard,
   Settings,
   LogOut,
   Factory,
-  AlertCircle,
+  ShieldAlert,
+  Bell,
+  ChevronRight,
   Menu,
   X,
   Sun,
   Moon,
-  ChevronRight,
-  Bell,
-  ShieldAlert
+  Wrench,
+  Calendar
 } from 'lucide-vue-next'
 
 const authStore = useAuthStore()
@@ -30,11 +38,13 @@ const isSidebarOpen = ref(true)
 const isNotificationsOpen = ref(false)
 
 const navigation = [
-  { name: 'Dashboard', href: '/', icon: LayoutDashboard },
+  { name: 'Command Center', href: '/', icon: Radio },
   { name: 'Machines', href: '/machines', icon: Factory },
-  { name: 'Downtime', href: '/downtime', icon: AlertCircle },
+  { name: 'Downtime', href: '/downtime', icon: Activity },
+  { name: 'Work Orders', href: '/maintenance', icon: Wrench },
+  { name: 'PM Plans', href: '/maintenance/schedules', icon: Calendar },
   { name: 'Analytics', href: '/analytics', icon: LayoutDashboard },
-  { name: 'Handovers', href: '/handovers', icon: Bell },
+  { name: 'Handovers', href: '/handovers', icon: Users },
   { name: 'Escalations', href: '/escalations', icon: ShieldAlert },
   { name: 'Settings', href: '/settings', icon: Settings },
 ]
