@@ -1,6 +1,7 @@
-from sqlalchemy import Column, String, Boolean, UUID, ForeignKey, Table
+from sqlalchemy import Column, String, Boolean, UUID, ForeignKey, Table, DateTime
 from sqlalchemy.orm import relationship
 import uuid
+from datetime import datetime, timezone
 from backend.app.db.base_class import Base
 
 # Association table for User-Role (RBAC)
@@ -26,6 +27,8 @@ class Tenant(Base):
     slug = Column(String, unique=True, nullable=False, index=True)
     is_active = Column(Boolean, default=True)
 
+    users = relationship("User", back_populates="tenant")
+
 class Permission(Base):
     __tablename__ = "permissions"
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
@@ -49,4 +52,17 @@ class User(Base):
     is_superuser = Column(Boolean, default=False)
     tenant_id = Column(UUID(as_uuid=True), ForeignKey("tenants.id"), index=True)
 
+    tenant = relationship("Tenant", back_populates="users")
     roles = relationship("Role", secondary=user_roles)
+    refresh_tokens = relationship("RefreshToken", back_populates="user", cascade="all, delete-orphan")
+
+class RefreshToken(Base):
+    __tablename__ = "refresh_tokens"
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    token = Column(String, index=True, unique=True, nullable=False)
+    user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
+    expires_at = Column(DateTime(timezone=True), nullable=False)
+    is_revoked = Column(Boolean, default=False)
+    created_at = Column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
+
+    user = relationship("User", back_populates="refresh_tokens")
