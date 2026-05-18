@@ -14,6 +14,13 @@ services:
     ports:
       - "5432:5432"
 
+  redis:
+    image: redis:alpine
+    container_name: mes-redis
+    restart: always
+    ports:
+      - "6379:6379"
+
   backend:
     build:
       context: ../backend
@@ -22,9 +29,11 @@ services:
     restart: always
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER:-user}:${POSTGRES_PASSWORD:-password}@db:5432/${POSTGRES_DB:-mes_db}
+      REDIS_URL: redis://redis:6379/0
       SECRET_KEY: ${SECRET_KEY:-your-super-secret-key-change-me}
     depends_on:
       - db
+      - redis
     ports:
       - "8000:8000"
 

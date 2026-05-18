@@ -168,3 +168,27 @@ export interface AgingIssue {
   status: string;
   severity: string;
 }
+
+export interface Notification {
+  id: string;
+  title: string;
+  message: string;
+  type: string;
+  severity: string;
+  is_read: boolean;
+  is_acknowledged: boolean;
+  link_to_entity_type?: string;
+  link_to_entity_id?: string;
+  created_at: string;
+}
+
+export interface EscalationRule {
+  id: string;
+  name: string;
+  entity_type: string;
+  condition_type: string;
+  threshold_value: number;
+  escalate_to_role?: string;
+  new_severity?: string;
+  is_active: boolean;
+}

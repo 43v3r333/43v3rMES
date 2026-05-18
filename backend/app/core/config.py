@@ -6,6 +6,7 @@ class Settings(BaseSettings):
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     DATABASE_URL: str = "postgresql://user:password@localhost:5432/mes_db"
+    REDIS_URL: str = "redis://localhost:6379/0"
     class Config:
         env_file = ".env"
         case_sensitive = True
