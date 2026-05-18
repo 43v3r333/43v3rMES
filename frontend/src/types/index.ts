@@ -27,3 +27,34 @@ export interface Tenant {
   slug: string;
   is_active: boolean;
 }
+
+export interface Factory {
+  id: string;
+  name: string;
+  description?: string;
+  tenant_id: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface FactoryCreate {
+  name: string;
+  description?: string;
+}
+
+export interface Machine {
+  id: string;
+  name: string;
+  code: string;
+  description?: string;
+  line_id: string;
+  tenant_id: string;
+  created_at: string;
+}
+
+export interface MachineCreate {
+  name: string;
+  code: string;
+  description?: string;
+  line_id: string;
+}
