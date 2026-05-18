@@ -1,0 +1,12 @@
+INFO:     Started server process [131275]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-05-18 08:35:35,013 [INFO] app: Method: GET Path: /health Status: 200 Duration: 0.0025s
+INFO:     127.0.0.1:55996 - "GET /health HTTP/1.1" 200 OK
+2026-05-18 08:35:35,030 [INFO] app: Method: POST Path: /api/v1/auth/login Status: 200 Duration: 0.0022s
+INFO:     127.0.0.1:55998 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [131275]

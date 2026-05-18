@@ -2,8 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'; import { useAuthSto
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    { path: '/login', name: 'login', component: () => import('@/views/LoginView.vue') },
-    { path: '/', component: () => import('@/layouts/DashboardLayout.vue'), children: [{ path: '', name: 'dashboard', component: () => import('@/views/DashboardView.vue') }] }
+    { path: '/:pathMatch(.*)*', name: 'not-found', component: () => import('@/pages/NotFoundPage.vue') },
+    { path: '/login', name: 'login', component: () => import('@/pages/LoginView.vue') },
+    { path: '/', component: () => import('@/layouts/DashboardLayout.vue'), children: [{ path: '', name: 'dashboard', component: () => import('@/pages/DashboardPage.vue') }] }
   ]
 })
 router.beforeEach((to, from, next) => {
