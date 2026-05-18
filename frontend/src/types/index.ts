@@ -299,3 +299,31 @@ export interface ReportRequestCreate {
   format: ExportFormat;
   parameters?: Record<string, any>;
 }
+
+export interface AIShiftSummary {
+  id: string;
+  shift_name: string;
+  date: string;
+  summary_text: string;
+  top_issues: string[];
+  maintenance_highlights: string[];
+  risk_level: 'LOW' | 'MEDIUM' | 'HIGH';
+  confidence: number;
+}
+
+export interface RiskAnalysis {
+  entity_id: string;
+  entity_name: string;
+  risk_score: number;
+  risk_factors: string[];
+  suggested_actions: string[];
+}
+
+export interface OperationalRecommendation {
+  id: string;
+  title: string;
+  description: string;
+  severity: 'INFO' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
+  action_item?: string;
+  created_at: string;
+}

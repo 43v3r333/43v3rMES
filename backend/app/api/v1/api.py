@@ -5,14 +5,19 @@ from backend.app.modules.notifications.routers import notifications
 api_router.include_router(operations.router, prefix="/operations", tags=["operations"])
 api_router.include_router(maintenance.router, tags=["maintenance"])
 api_router.include_router(reporting.router, prefix="/reports", tags=["reporting"])
+api_router.include_router(intelligence.router, prefix="/intelligence", tags=["intelligence"])
 from backend.app.modules.operations.routers import operations
 from backend.app.api.v1.endpoints import health
 from backend.app.modules.search.routers import search
 api_router.include_router(maintenance.router, tags=["maintenance"])
 api_router.include_router(reporting.router, prefix="/reports", tags=["reporting"])
+api_router.include_router(intelligence.router, prefix="/intelligence", tags=["intelligence"])
 from backend.app.modules.maintenance.routers import maintenance
 api_router.include_router(reporting.router, prefix="/reports", tags=["reporting"])
+api_router.include_router(intelligence.router, prefix="/intelligence", tags=["intelligence"])
 from backend.app.modules.reporting.routers import reporting
+api_router.include_router(intelligence.router, prefix="/intelligence", tags=["intelligence"])
+from backend.app.modules.intelligence.routers import intelligence
 
 api_router = APIRouter()
 api_router.include_router(health.router, prefix="/health", tags=["health"])
@@ -27,3 +32,4 @@ api_router.include_router(notifications.router, prefix="/notifications", tags=["
 api_router.include_router(operations.router, prefix="/operations", tags=["operations"])
 api_router.include_router(maintenance.router, tags=["maintenance"])
 api_router.include_router(reporting.router, prefix="/reports", tags=["reporting"])
+api_router.include_router(intelligence.router, prefix="/intelligence", tags=["intelligence"])

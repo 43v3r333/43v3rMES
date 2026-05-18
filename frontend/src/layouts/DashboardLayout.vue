@@ -27,7 +27,8 @@ import {
   Moon,
   Wrench,
   Calendar,
-  FileBarChart
+  FileBarChart,
+  BrainCircuit
 } from 'lucide-vue-next'
 
 const authStore = useAuthStore()
@@ -41,6 +42,7 @@ const isNotificationsOpen = ref(false)
 
 const navigation = [
   { name: 'Command Center', href: '/', icon: Radio },
+  { name: 'Intelligence', href: '/intelligence', icon: BrainCircuit },
   { name: 'Machines', href: '/machines', icon: Factory },
   { name: 'Downtime', href: '/downtime', icon: Activity },
   { name: 'Work Orders', href: '/maintenance', icon: Wrench },
@@ -102,14 +104,12 @@ const handleLogout = () => {
             <X v-else class="h-5 w-5" />
           </button>
 
-          <!-- Global Search -->
           <div class="ml-4 hidden md:block flex-1 max-w-sm">
             <GlobalSearchBar />
           </div>
         </div>
 
         <div class="flex items-center space-x-3">
-          <!-- Notification Bell -->
           <div class="relative">
             <button @click="isNotificationsOpen = !isNotificationsOpen" class="p-2 rounded-md hover:bg-accent relative">
               <Bell class="h-5 w-5" />
@@ -137,7 +137,6 @@ const handleLogout = () => {
         </div>
       </header>
       <main class="flex-1 overflow-y-auto p-6 bg-muted/20" @click="isNotificationsOpen = false">
-        <!-- Breadcrumbs bar -->
         <nav class="mb-4 flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
           <span>Enterprise</span>
           <ChevronRight class="h-3 w-3" />
