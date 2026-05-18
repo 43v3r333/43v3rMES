@@ -1,0 +1,17 @@
+{
+  "name": "mes-frontend",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": { "dev": "vite", "build": "vue-tsc && vite build", "preview": "vite preview" },
+  "dependencies": {
+    "@headlessui/vue": "^1.7.22", "@radix-vue/shadcn": "^0.0.1", "@tanstack/vue-table": "^8.17.3",
+    "@vueuse/core": "^10.11.0", "ag-grid-community": "^31.3.4", "ag-grid-vue3": "^31.3.4",
+    "axios": "^1.7.2", "class-variance-authority": "^0.7.0", "clsx": "^2.1.1", "echarts": "^5.5.0",
+    "lucide-vue-next": "^0.381.0", "pinia": "^2.1.7", "radix-vue": "^1.8.3", "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7", "vue": "^3.4.27", "vue-echarts": "^6.7.3", "vue-router": "^4.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.2", "@vitejs/plugin-vue": "^5.0.4", "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38", "tailwindcss": "^3.4.4", "typescript": "^5.4.5", "vite": "^5.2.12", "vue-tsc": "^2.0.19"
+  }
+}
