@@ -327,3 +327,22 @@ export interface OperationalRecommendation {
   action_item?: string;
   created_at: string;
 }
+
+export interface SiteComparisonItem {
+  site_id: string;
+  site_name: string;
+  region_name: string;
+  availability: number;
+  mttr: number;
+  mtbf: number;
+  open_incidents: number;
+}
+
+export interface EnterpriseOverview {
+  total_sites: number;
+  active_incidents_total: number;
+  critical_risk_sites: number;
+  top_performing_site: string;
+  bottom_performing_site: string;
+  enterprise_availability: number;
+}

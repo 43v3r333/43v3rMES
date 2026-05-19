@@ -28,7 +28,8 @@ import {
   Wrench,
   Calendar,
   FileBarChart,
-  BrainCircuit
+  BrainCircuit,
+  Globe
 } from 'lucide-vue-next'
 
 const authStore = useAuthStore()
@@ -42,6 +43,7 @@ const isNotificationsOpen = ref(false)
 
 const navigation = [
   { name: 'Command Center', href: '/', icon: Radio },
+  { name: 'Enterprise', href: '/enterprise', icon: Globe },
   { name: 'Intelligence', href: '/intelligence', icon: BrainCircuit },
   { name: 'Machines', href: '/machines', icon: Factory },
   { name: 'Downtime', href: '/downtime', icon: Activity },

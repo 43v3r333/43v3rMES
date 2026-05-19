@@ -9,10 +9,12 @@ class Factory(Base):
     name = Column(String, nullable=False)
     description = Column(String)
     tenant_id = Column(UUID(as_uuid=True), ForeignKey("tenants.id"), nullable=False, index=True)
+    region_id = Column(UUID(as_uuid=True), ForeignKey("regions.id"), nullable=True, index=True)
     created_by = Column(UUID(as_uuid=True))
     updated_by = Column(UUID(as_uuid=True))
 
     areas = relationship("Area", back_populates="factory", cascade="all, delete-orphan")
+    region = relationship("Region", back_populates="factories")
 
 class Area(Base):
     __tablename__ = "areas"
@@ -21,6 +23,7 @@ class Area(Base):
     description = Column(String)
     factory_id = Column(UUID(as_uuid=True), ForeignKey("factories.id"), nullable=False, index=True)
     tenant_id = Column(UUID(as_uuid=True), ForeignKey("tenants.id"), nullable=False, index=True)
+    region_id = Column(UUID(as_uuid=True), ForeignKey("regions.id"), nullable=True, index=True)
     created_by = Column(UUID(as_uuid=True))
     updated_by = Column(UUID(as_uuid=True))
 
@@ -34,6 +37,7 @@ class ProductionLine(Base):
     description = Column(String)
     area_id = Column(UUID(as_uuid=True), ForeignKey("areas.id"), nullable=False, index=True)
     tenant_id = Column(UUID(as_uuid=True), ForeignKey("tenants.id"), nullable=False, index=True)
+    region_id = Column(UUID(as_uuid=True), ForeignKey("regions.id"), nullable=True, index=True)
     created_by = Column(UUID(as_uuid=True))
     updated_by = Column(UUID(as_uuid=True))
 
@@ -48,6 +52,7 @@ class Machine(Base):
     description = Column(String)
     line_id = Column(UUID(as_uuid=True), ForeignKey("production_lines.id"), nullable=False, index=True)
     tenant_id = Column(UUID(as_uuid=True), ForeignKey("tenants.id"), nullable=False, index=True)
+    region_id = Column(UUID(as_uuid=True), ForeignKey("regions.id"), nullable=True, index=True)
     created_by = Column(UUID(as_uuid=True))
     updated_by = Column(UUID(as_uuid=True))
 
