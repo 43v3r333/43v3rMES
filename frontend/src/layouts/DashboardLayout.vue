@@ -5,6 +5,7 @@ import { useAuthStore } from '@/stores/auth'
 import { useDarkMode } from '@/composables/useDarkMode'
 import { useNotificationStore } from '@/stores/notification'
 import NotificationPanel from '@/components/ui/NotificationPanel.vue'
+import EnvironmentBanner from '@/components/enterprise/EnvironmentBanner.vue'
 import GlobalSearchBar from '@/components/enterprise/GlobalSearchBar.vue'
 import {
   Radio,
@@ -63,6 +64,7 @@ const handleLogout = () => {
 </script>
 
 <template>
+    <EnvironmentBanner />
   <div class="min-h-screen bg-background flex text-foreground font-sans selection:bg-primary/20">
     <!-- Sidebar -->
     <aside

@@ -5,6 +5,7 @@ const router = createRouter({
     { path: '/:pathMatch(.*)*', name: 'not-found', component: () => import('@/pages/NotFoundPage.vue') },
     { path: '/login', name: 'login', component: () => import('@/pages/LoginView.vue') },
     { path: '/', component: () => import('@/layouts/DashboardLayout.vue'), children: [{ path: '', name: 'dashboard', component: () => import('@/pages/OperationsCommandCenterPage.vue') }] }
+        { path: 'diagnostics', name: 'diagnostics', component: () => import('@/pages/DiagnosticsPage.vue') },
         { path: 'enterprise', name: 'enterprise', component: () => import('@/pages/EnterpriseOverviewPage.vue') },
         { path: 'intelligence', name: 'intelligence', component: () => import('@/pages/IntelligencePage.vue') },
         { path: 'reports', name: 'reports', component: () => import('@/pages/ReportingPage.vue') },

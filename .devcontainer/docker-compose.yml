@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mes_db
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:alpine
+    restart: always
+    ports:
+      - "6379:6379"
+
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace:cached
+    environment:
+      DATABASE_URL: postgresql://user:password@db:5432/mes_db
+      REDIS_URL: redis://redis:6379/0
+      SECRET_KEY: dev-secret-key-change-me
+    depends_on:
+      - db
+      - redis
+    command: sleep infinity
+
+  frontend:
+    image: node:20-alpine
+    volumes:
+      - ..:/workspace:cached
+    working_dir: /workspace/frontend
+    command: sleep infinity

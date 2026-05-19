@@ -1,0 +1,22 @@
+{
+  "name": "43v3rMES Development",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "backend",
+  "workspaceFolder": "/workspace",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "Vue.volar",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "njpwerner.autodocstring"
+      ]
+    }
+  },
+  "postCreateCommand": "bash scripts/bootstrap.sh",
+  "forwardPorts": [8000, 5173, 5432, 6379]
+}
